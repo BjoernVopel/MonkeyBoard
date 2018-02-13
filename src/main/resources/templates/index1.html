@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Registrieren</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="/css/bootstrap.min.css"></link>
+<script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+
+		<h1>Route hinzufügen</h1>
+
+		<form method="post" action="createroute">
+		  <div class="form-group">
+		  	<label for="routenameInput">Name</label>
+		    	<input type="text" required="true" name="name" class="form-control" id="routenameInput" placeholder="Routennamen eingeben"></input>
+        	<label for="gradInput">Grad</label>
+		    	<input type="text" required="true" name="grad" class="form-control" id="gradInput" placeholder="Grad eingeben"></input>
+		    <label for="griffeInput">Griffe</label>
+		    	<input type="text" required="true" name="griffe" class="form-control" id="griffeInput" placeholder="Griffe eingeben"></input>
+        	</div>
+		  <button type="submit" class="btn btn-primary">Hinzufügen</button>
+		</form>
+	</div>
+</body>
+</html>
