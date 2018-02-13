@@ -5,6 +5,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="/css/bootstrap.min.css"></link>
 <script src="/js/bootstrap.min.js"></script>
+<style>
+	table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	}
+	
+	td, th {
+	border: 1px solid #000000;
+	text-align: left;
+	padding: 8px;
+	}
+	
+	tr:nth-child(even) {
+	background-color: #dddddd;
+	}
+</style>
 </head>
 <body>
 	<div class="container">
@@ -23,5 +40,30 @@
 		  <button type="submit" class="btn btn-primary">Hinzufügen</button>
 		</form>
 	</div>
+	
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">Grad</th>
+				<th scope="col">Griffe</th>			
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="r,iterationStatus  : ${routen}">
+				<td th:text="${r.name}">Name</td>
+				<td th:text="${r.grad}">Grad</td>
+				<td th:text="${r.griffe}">Griffe</td>
+			</tr>
+			
+		</tbody>
+	
+	
+	
+	
+	</table>
+	
+	
+	
 </body>
 </html>
