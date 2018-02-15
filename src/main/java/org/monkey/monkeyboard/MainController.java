@@ -19,6 +19,7 @@ public class MainController {
 	
 	@GetMapping(path = "/")
 	public String showLoginpage(Model model) {
+		model.addAttribute("routen", routeRepository.findAll());
 		return "index1";
 	}
 	

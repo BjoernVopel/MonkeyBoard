@@ -18,24 +18,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private UserDetailsService userDetailsService;
 
 	public void configure(HttpSecurity httpSecurity) throws Exception {
+		httpSecurity.csrf().disable();
 		httpSecurity.authorizeRequests()
-				.antMatchers("/*").hasRole("USER")
+				.antMatchers("/**").hasRole("USER")
 			.and()
-				.formLogin();
-		
-		/*
-		httpSecurity.authorizeRequests().antMatchers("/front").permitAll()
-        .anyRequest().authenticated()
-        .and().formLogin().loginPage("/login").permitAll()
-        .and().logout().permitAll();
-        */
+				.formLogin().permitAll();
 	}
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		//auth.inMemoryAuthentication()
-		//	.withUser("bjorn").password("passwort").roles("USER");
-		
 		auth.userDetailsService(userDetailsService);
 	}
 }
