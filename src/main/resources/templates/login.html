@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Login Monkeyboard</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="/css/bootstrap.min.css"></link>
+<script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+
+		<h1>Login</h1>
+
+		<form method="post" action="createuser">
+		  <div class="form-group">
+		  	<label for="benutzernameInput">Benutzername</label>
+		    	<input type="text" required="true" name="name" class="form-control" id="benutzernameInput" placeholder="Benutzernamen eingeben"></input>
+        	<label for="passwortInput">Passwort</label>
+		    	<input type="text" required="true" name="passwort" class="form-control" id="passwortInput" placeholder="Passwort eingeben"></input>
+        	</div>
+		  <button type="submit" class="btn btn-primary">Login</button>
+		</form>
+	</div>
+</body>
+</html>

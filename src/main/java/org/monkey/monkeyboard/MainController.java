@@ -18,6 +18,11 @@ public class MainController {
 	private RouteRepository routeRepository;
 	
 	@GetMapping(path = "/")
+	public String showLoginpage(Model model) {
+		return "index1";
+	}
+	
+	@GetMapping(path = "/front")
 	public String showFrontpage(Model model) {
 		model.addAttribute("routen", routeRepository.findAll());
 		return "index1";
@@ -31,7 +36,12 @@ public class MainController {
 		r.setGrad(grad);
 		r.setGriffe(griffe);
 		routeRepository.save(r);
-		return new RedirectView("/");
+		return new RedirectView("/front");
+	}
+	
+	@PostMapping(path="/createuser")
+	public @ResponseBody RedirectView addNewUser(@RequestParam String name, @RequestParam String passwort) {
+		return new RedirectView("/front");
 	}
 	
 	@GetMapping(path="/all")
