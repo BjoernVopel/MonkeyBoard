@@ -1,13 +1,50 @@
-<html>
-
-
-	<head>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Registrieren</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="/css/bootstrap.min.css"></link>
+<script src="/js/bootstrap.min.js"></script>
+<style>
+	table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	}
 	
-	</head>
-	<body>
-		<h1>Hallo Master</h1>
-	</body>
+	td, th {
+	border: 1px solid #000000;
+	text-align: left;
+	padding: 8px;
+	}
+	
+	tr:nth-child(even) {
+	background-color: #dddddd;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
 
+		<h1>Registrieren</h1>
 
-
+		<form method="post" action="createuser">
+		  <div class="form-group">
+		  	<label for="usernameInput">Name</label>
+		    	<input type="text" required="true" name="name" class="form-control" id="usernameInput" placeholder="Benutzernamen"></input>
+        	<label for="passwordInput">Passwort</label>
+		    	<input type="text" required="true" name="passwort" class="form-control" id="passwordInput" placeholder="Passwort"></input>
+        	</div>
+		  <button type="submit" class="btn btn-primary">Registrieren</button>
+		</form>
+	</div>
+	<div class="container">
+		<h1>Schon einen Account?</h1>
+		<form method="post" action="olduser">
+			<button type="submit" class="btn btn-primary">Login</button>
+		</form>
+	</div>
+	
+	
+</body>
 </html>

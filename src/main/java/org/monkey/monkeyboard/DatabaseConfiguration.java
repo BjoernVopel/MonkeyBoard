@@ -1,4 +1,5 @@
-/*package org.monkey.monkeyboard;
+/*
+package org.monkey.monkeyboard;
 
 import javax.sql.DataSource;
 
@@ -25,7 +26,7 @@ public class DatabaseConfiguration {
 		return dataSourceBuilder.build();
 		
 	}
-	
-}
 
+}
 */
+
