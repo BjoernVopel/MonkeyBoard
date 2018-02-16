@@ -24,6 +24,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/**").hasRole("USER")
 			.and()
 				.formLogin().permitAll();
+		httpSecurity.logout()
+                .logoutUrl("/custom-logout").logoutSuccessUrl("/");
 	}
 	
 	@Autowired
