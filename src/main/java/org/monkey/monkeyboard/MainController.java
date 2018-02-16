@@ -17,10 +17,12 @@ public class MainController {
 	@Autowired
 	private RouteRepository routeRepository;
 	
+	@Autowired
+	private UserRepository userRepository;
+	
 	@GetMapping(path = "/")
-	public String showLoginpage(Model model) {
-		model.addAttribute("routen", routeRepository.findAll());
-		return "index1";
+	public String showStartpage(Model model) {
+		return "index";
 	}
 	
 	@GetMapping(path = "/front")
@@ -42,6 +44,15 @@ public class MainController {
 	
 	@PostMapping(path="/createuser")
 	public @ResponseBody RedirectView addNewUser(@RequestParam String name, @RequestParam String passwort) {
+		User u = new User();
+		u.setUsername(name);
+		u.setPassword(passwort);
+		userRepository.save(u);
+		return new RedirectView("/front");
+	}
+	
+	@PostMapping(path="/olduser")
+	public @ResponseBody RedirectView oldUser() {
 		return new RedirectView("/front");
 	}
 	
