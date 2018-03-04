@@ -1,5 +1,6 @@
-package org.monkey.monkeyboard;
+package org.monkey.monkeyboard.repositories;
 
+import org.monkey.monkeyboard.entities.User;
 import org.springframework.data.repository.CrudRepository;
 
 

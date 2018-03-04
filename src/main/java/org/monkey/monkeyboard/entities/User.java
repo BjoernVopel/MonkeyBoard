@@ -1,9 +1,14 @@
-package org.monkey.monkeyboard;
+package org.monkey.monkeyboard.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -12,7 +17,7 @@ public class User {
 	
 	@Id
     @GeneratedValue()
-    private long id;
+    private Long id;
  
     @NotEmpty(message = "username is required")
     @Column(unique = true)
@@ -21,7 +26,10 @@ public class User {
     @NotEmpty(message = "password is required")
     private String password;
     
-    protected User() {}
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Route> routes;
+    
+    public User() {}
     
     public User(String userName, String password) {
         this.username = userName;

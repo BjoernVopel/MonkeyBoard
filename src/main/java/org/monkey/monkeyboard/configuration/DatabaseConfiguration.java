@@ -1,3 +1,4 @@
+package org.monkey.monkeyboard.configuration;
 /*
 package org.monkey.monkeyboard;
 

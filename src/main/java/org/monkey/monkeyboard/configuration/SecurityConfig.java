@@ -1,5 +1,6 @@
-package org.monkey.monkeyboard;
+package org.monkey.monkeyboard.configuration;
 
+import org.monkey.monkeyboard.entities.AuthenticatedUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -21,11 +22,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.csrf().disable();
 		httpSecurity.authorizeRequests()
 				.antMatchers("/").permitAll()
-				.antMatchers("/**").hasRole("USER")
+				.antMatchers("/authorized/*").hasRole("USER")
 			.and()
 				.formLogin().permitAll();
 		httpSecurity.logout()
-                .logoutUrl("/custom-logout").logoutSuccessUrl("/");
+                .logoutUrl("/authorized/custom-logout").logoutSuccessUrl("/");
 	}
 	
 	@Autowired

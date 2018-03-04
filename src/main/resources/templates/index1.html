@@ -24,42 +24,38 @@
 </style>
 </head>
 <body>
-	<div class="container">
 
-		<h1>Route hinzufügen</h1>
-
-		<form method="post" action="createroute">
-		  <div class="form-group">
-		  	<label for="routenameInput">Name</label>
-		    	<input type="text" required="true" name="name" class="form-control" id="routenameInput" placeholder="Routennamen eingeben"></input>
-        	<label for="gradInput">Grad</label>
-		    	<input type="text" required="true" name="grad" class="form-control" id="gradInput" placeholder="Grad eingeben"></input>
-		    <label for="griffeInput">Griffe</label>
-		    	<input type="text" required="true" name="griffe" class="form-control" id="griffeInput" placeholder="Griffe eingeben"></input>
-        	</div>
-		  <button type="submit" class="btn btn-primary">Hinzufügen</button>
-		</form>
-	</div>
+	<h1>MonkeyBoard Dashboard</h1>
 	
 	<div>
-		<form method="post" action="custom-logout">
-			<button type="submit" class="btn btn-primary">Logout</button>
+		<form method="get" action="routeCreator">
+			<button type="submit" class="btn btn-primary">Route hinzufügen</button>
 		</form>
 	</div>
 	
-	<table class="table">
+	
+	<table style="width:35%" class="table">
 		<thead class="thead-dark">
 			<tr>
 				<th scope="col">Name</th>
 				<th scope="col">Grad</th>
-				<th scope="col">Griffe</th>			
+				<th scope="col">Griffe</th>	
+				<th scope="col">Erschaffer</th>	
+				<th ></th>		
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="r,iterationStatus  : ${routen}">
-				<td th:text="${r.name}">Name</td>
+				<td  th:text="${r.name}"><a href="/authorized/test">Name</a></td>
 				<td th:text="${r.grad}">Grad</td>
 				<td th:text="${r.griffe}">Griffe</td>
+				<td th:text="${r.user.username}">Erschaffer</td>
+				<td align="center">
+					<form method="post" action="showRoute">
+						<input type="hidden" th:value="${r.id}" name="id" id="id"/>
+						<button type="submit" class="btn btn-primary">Route ansehen</button>
+					</form>
+				</td>
 			</tr>
 			
 		</tbody>
@@ -68,6 +64,12 @@
 	
 	
 	</table>
+	
+	<div>
+		<form method="post" action="custom-logout">
+			<button type="submit" class="btn btn-primary">Logout</button>
+		</form>
+	</div>
 	
 	
 	

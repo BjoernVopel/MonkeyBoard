@@ -1,5 +1,6 @@
-package org.monkey.monkeyboard;
+package org.monkey.monkeyboard.entities;
 
+import org.monkey.monkeyboard.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

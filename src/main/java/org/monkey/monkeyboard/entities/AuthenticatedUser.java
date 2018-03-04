@@ -1,4 +1,4 @@
-package org.monkey.monkeyboard;
+package org.monkey.monkeyboard.entities;
 
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
